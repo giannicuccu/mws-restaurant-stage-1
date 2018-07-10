@@ -35,6 +35,15 @@ h1, h2, h3, h4, h5, h6 {
 article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
 	display: block;
 }
+
+
+.home header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+}
+
 #maincontent {
   background-color: #f3f3f3;
   min-height: 100%;
@@ -58,9 +67,9 @@ nav {
   display: flex;
   flex-wrap: nowrap;
   flex-flow: column;
-  position: fixed;
+  /* position: fixed;
   top: 0; 
-  z-index: 9999;
+  z-index: 9999; */
   
 }
 nav h1 {
@@ -80,7 +89,7 @@ nav h1 a {
     background-color: #eee;
     font-size: 17px;
     margin: 0;
-    width: calc(50% - 80px);
+    width: calc(50% - 60px);
 }
 
 /* Display list items side by side */
@@ -210,6 +219,7 @@ nav h1 a {
   position: fixed;
   right: 0;
   top: 80px;
+  width: calc(50% - 20px);
   
 }
 .inside #map {
@@ -220,7 +230,7 @@ nav h1 a {
 .inside #footer {
   bottom: 0;
   position: absolute;
-  width: 50%;
+  width: calc(50% - 30px);
 }
 #restaurant-name {
   color: #f18200;
@@ -278,7 +288,7 @@ nav h1 a {
   list-style-type: none;
   margin: 0 0 30px;
   overflow: hidden;
-  padding: 0 20px 20px;
+  padding: 20px 20px 20px;
   position: relative;
   width: 85%;
 }
@@ -288,6 +298,11 @@ nav h1 a {
 #restaurant-hours td {
   color: #666;
 }
+
+.revname{font-weight: bold;text-transform: uppercase;}
+.revdate{font-style: italic;}
+.revrating span{font-weight: bold;}
+.revcomment{}
 
 
 @media all and (min-width: 1440px) {
