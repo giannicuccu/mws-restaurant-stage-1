@@ -249,3 +249,9 @@ addMarkersToMap = (restaurants = self.restaurants) => {
   });
 } */
 
+
+let offlineSwitch = ()=>{
+
+  alert('YOU ARE OFFLINE');
+
+}
