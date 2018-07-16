@@ -1,7 +1,7 @@
 
 self.addEventListener('install', function(event) {
     event.waitUntil(
-      caches.open('restaurant-reviews-25')
+      caches.open('restaurant-reviews-26')
       .then(function(cache) {
         return cache.addAll([
           '/', 
@@ -53,7 +53,7 @@ self.addEventListener('install', function(event) {
       //   //return caches.match('/img/offlinemap.png');
       // }
 
-      return caches.open('restaurant-reviews-25')
+      return caches.open('restaurant-reviews-26')
       .then(function(cache) {
         if (response.type !== 'opaque'){          
           cache.put(url, response.clone());
@@ -63,10 +63,10 @@ self.addEventListener('install', function(event) {
       });
     })
     .catch(function(error) {
-      console.log('Request failed:', error);
+      console.log('Request failed:', url);
       // offlineSwitch();
       // navigator.serviceWorker.controller.postMessage("OFFLINE OFFLINE");
-      //return caches.match('/img/offlinemap.png');
+      return caches.match('/img/offlinemap.png');
       // return fetch('/img/offlinemap.png')
     });
   }

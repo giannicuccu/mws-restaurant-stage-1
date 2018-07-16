@@ -255,15 +255,15 @@ addMarkersToMap = (restaurants = self.restaurants) => {
     self.markers.push(marker);
   });
 } */
-function updateIndicator() {
-	if(navigator.onLine) { // true|false
-    alert('online')
-  }else{alert('offline')}
-}
+// function updateIndicator() {
+// 	if(navigator.onLine) { // true|false
+//     alert('online')
+//   }else{alert('offline')}
+// }
 
-// Update the online status icon based on connectivity
-window.addEventListener('online',  updateIndicator());
-window.addEventListener('offline', updateIndicator());
+// // Update the online status icon based on connectivity
+// window.addEventListener('online',  updateIndicator());
+// window.addEventListener('offline', updateIndicator());
 
 
 
