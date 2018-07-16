@@ -13,6 +13,13 @@ if (!navigator.serviceWorker) {
   }).catch(function() {
     console.log('Registration failed!');
   });
+
+
+//   // Listen to messages from service workers.
+//   navigator.serviceWorker.addEventListener('message', function(event) {
+//   console.log("Got reply from service worker: " + event.data);
+// });
+
 };
 
 
@@ -248,10 +255,16 @@ addMarkersToMap = (restaurants = self.restaurants) => {
     self.markers.push(marker);
   });
 } */
-
-
-let offlineSwitch = ()=>{
-
-  alert('YOU ARE OFFLINE');
-
+function updateIndicator() {
+	if(navigator.onLine) { // true|false
+    alert('online')
+  }else{alert('offline')}
 }
+
+// Update the online status icon based on connectivity
+window.addEventListener('online',  updateIndicator());
+window.addEventListener('offline', updateIndicator());
+
+
+
+
