@@ -1,7 +1,7 @@
 
 self.addEventListener('install', function(event) {
     event.waitUntil(
-      caches.open('restaurant-reviews-26')
+      caches.open('restaurant-reviews-32')
       .then(function(cache) {
         return cache.addAll([
           '/', 
@@ -13,6 +13,7 @@ self.addEventListener('install', function(event) {
           '/js/restaurant_info.js',
           '/img/offlinemap.png',
           'https://cdn.jsdelivr.net/npm/normalize.css@8.0.0/normalize.css',
+          'https://unpkg.com/leaflet@1.3.1/dist/leaflet.css',
           'https://unpkg.com/leaflet@1.3.1/dist/leaflet.js',
           'https://unpkg.com/leaflet@1.3.1/dist/images/marker-icon.png',
           'https://unpkg.com/leaflet@1.3.1/dist/images/marker-shadow.png'
@@ -20,6 +21,11 @@ self.addEventListener('install', function(event) {
         ]);
       })
     );
+  });
+
+
+  self.addEventListener('activate', function(event) {
+    event.waitUntil(clients.claim());
   });
 
 
@@ -53,7 +59,7 @@ self.addEventListener('install', function(event) {
       //   //return caches.match('/img/offlinemap.png');
       // }
 
-      return caches.open('restaurant-reviews-26')
+      return caches.open('restaurant-reviews-32')
       .then(function(cache) {
         if (response.type !== 'opaque'){          
           cache.put(url, response.clone());
@@ -66,6 +72,7 @@ self.addEventListener('install', function(event) {
       console.log('Request failed:', url);
       // offlineSwitch();
       // navigator.serviceWorker.controller.postMessage("OFFLINE OFFLINE");
+     /* TODO: check if is a request for map images url.url.contains('MAP URL STRING PATTERN') */
       return caches.match('/img/offlinemap.png');
       // return fetch('/img/offlinemap.png')
     });
