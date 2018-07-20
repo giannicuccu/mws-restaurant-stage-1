@@ -6,6 +6,7 @@ var newMap;
  */
 document.addEventListener('DOMContentLoaded', (event) => {  
   initMap();
+  
 });
 
 /**
@@ -107,6 +108,9 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
   }
   // fill reviews
   fillReviewsHTML();
+
+  // Set page title
+  setPageTitle();
 }
 
 /**
@@ -114,6 +118,20 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
  */
 fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => {
   const hours = document.getElementById('restaurant-hours');
+  
+  // add caption and headings
+  const caption =  document.createElement("CAPTION");
+  caption.innerText = 'Restaurant Openings';
+  hours.appendChild(caption);
+  const headingrow = document.createElement('tr'); 
+  const dayheading = document.createElement('th');
+  dayheading.innerText = 'Day';
+  const hoursheading = document.createElement('th');
+  hoursheading.innerText = 'Opening hours';
+  headingrow.appendChild(dayheading);
+  headingrow.appendChild(hoursheading);
+  hours.appendChild(headingrow);
+
   for (let key in operatingHours) {
     const row = document.createElement('tr');
 
@@ -187,6 +205,13 @@ fillBreadcrumb = (restaurant=self.restaurant) => {
   const li = document.createElement('li');
   li.innerHTML = restaurant.name;
   breadcrumb.appendChild(li);
+}
+
+/**
+ * Add restaurant name to the title
+ */
+setPageTitle = (restaurant=self.restaurant) => {
+  document.title = restaurant.name;
 }
 
 /**

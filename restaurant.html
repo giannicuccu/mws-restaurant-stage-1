@@ -31,12 +31,12 @@
   <!-- Beginning main -->
   <main id="maincontent">
     <!-- Beginning map -->
-    <section id="map-container">
-      <div id="map" role="application" aria-label="Map with restaurant position"></div>
+    <section id="map-container" tabindex="0">
+      <div id="map" role="application" aria-label="Location Map"></div>
     </section>
     <!-- End map -->
     <!-- Beginning restaurant -->
-    <section id="restaurant-container">
+    <section id="restaurant-container" tabindex="0">
       <h1 id="restaurant-name"></h1>
       <picture>
         <source id="img-jpg-small" type="image/jpg"  srcset="" media="(max-width: 425px)">
@@ -45,11 +45,13 @@
       </picture>
       <p id="restaurant-cuisine"></p>
       <p id="restaurant-address"></p>
-      <table id="restaurant-hours"></table>
+      <table id="restaurant-hours">   
+
+      </table>
     </section>
     <!-- end restaurant -->
     <!-- Beginning reviews -->
-    <section id="reviews-container">
+    <section id="reviews-container" tabindex="0">
       <ul id="reviews-list"></ul>
     </section>
     <!-- End reviews -->

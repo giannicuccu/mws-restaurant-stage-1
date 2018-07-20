@@ -1,7 +1,7 @@
 
 self.addEventListener('install', function(event) {
     event.waitUntil(
-      caches.open('restaurant-reviews-32')
+      caches.open('restaurant-reviews-00')
       .then(function(cache) {
         return cache.addAll([
           '/', 
@@ -16,6 +16,7 @@ self.addEventListener('install', function(event) {
           'https://unpkg.com/leaflet@1.3.1/dist/leaflet.css',
           'https://unpkg.com/leaflet@1.3.1/dist/leaflet.js',
           'https://unpkg.com/leaflet@1.3.1/dist/images/marker-icon.png',
+          'https://unpkg.com/leaflet@1.3.1/dist/images/marker-icon-2x.png',
           'https://unpkg.com/leaflet@1.3.1/dist/images/marker-shadow.png'
 
         ]);
@@ -59,7 +60,7 @@ self.addEventListener('install', function(event) {
       //   //return caches.match('/img/offlinemap.png');
       // }
 
-      return caches.open('restaurant-reviews-32')
+      return caches.open('restaurant-reviews-00')
       .then(function(cache) {
         if (response.type !== 'opaque'){          
           cache.put(url, response.clone());
