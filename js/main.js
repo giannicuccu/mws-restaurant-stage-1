@@ -1,3 +1,22 @@
+
+/*REGISTER SERVICE WORKER*/
+/**/
+
+if (!navigator.serviceWorker) {
+  console.log('NO SERVICE WORKER')
+}else{
+  //navigator.serviceWorker.register('/worker.js').then(function() {
+    navigator.serviceWorker.register('/worker.js').then(function() {
+    console.log('Registration worked!');
+  }).catch(function() {
+    console.log('Registration failed!');
+  });
+
+};
+
+
+
+
 let restaurants,
   neighborhoods,
   cuisines
@@ -78,7 +97,7 @@ initMap = () => {
         scrollWheelZoom: false
       });
   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.jpg70?access_token=pk.eyJ1IjoiZ2JxcSIsImEiOiJjamo3ZWx2MXcwMjM1M3FtcXM4OW9rMzZzIn0.r2-ir2FtdEDp8UVj2hjaWA', {
-    mapboxToken: '<your MAPBOX API KEY HERE>',
+    mapboxToken: 'pk.eyJ1IjoiZ2JxcSIsImEiOiJjamo3ZWx2MXcwMjM1M3FtcXM4OW9rMzZzIn0.r2-ir2FtdEDp8UVj2hjaWA',
     maxZoom: 18,
     attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
       '<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
@@ -157,12 +176,34 @@ fillRestaurantsHTML = (restaurants = self.restaurants) => {
  */
 createRestaurantHTML = (restaurant) => {
   const li = document.createElement('li');
+  li.tabIndex = '0';
+
+  // Add picture element and some  sources (webp and small images)
+
+  const picture = document.createElement('picture');
+  const sourceWebP = document.createElement('source');
+  sourceWebP.type = 'image/webp';
+  sourceWebP.srcset = '/dist/img/' + DBHelper.imageNameForRestaurant(restaurant) + '.webp';
+  sourceWebP.media = "(min-width: 426px)";
+
+  const sourceJpgSmall = document.createElement('source');
+  sourceJpgSmall.type = 'image/jpg';
+  sourceJpgSmall.srcset = '/dist/img/' + DBHelper.imageNameForRestaurant(restaurant) + '-small.jpg';
+  sourceJpgSmall.media = "(max-width: 425px)";
 
   const image = document.createElement('img');
   image.className = 'restaurant-img';
-  image.setAttribute('alt', restaurant.name); // add alt attr to image
+
+  // Add ALT attribute
+  image.setAttribute('alt', 'Picture of ' + restaurant.name + ''); // add alt attr to image
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
-  li.append(image);
+
+ 
+  picture.append(sourceWebP);
+  picture.append(sourceJpgSmall);
+  picture.append(image)
+
+  li.append(picture);
 
   const name = document.createElement('h1');
   name.innerHTML = restaurant.name;
@@ -178,7 +219,7 @@ createRestaurantHTML = (restaurant) => {
 
   const more = document.createElement('a');
   more.innerHTML = 'View Details';
-  more.setAttribute('title', restaurant.name+' details'); // add title attribute to details btn
+  more.setAttribute('aria-label', restaurant.name+' details'); // add aria label attribute to details btn
   more.href = DBHelper.urlForRestaurant(restaurant);
   li.append(more)
 
@@ -192,14 +233,26 @@ addMarkersToMap = (restaurants = self.restaurants) => {
   restaurants.forEach(restaurant => {
     // Add marker to the map
     const marker = DBHelper.mapMarkerForRestaurant(restaurant, self.newMap);
-    marker.on("click", onClick);
-    function onClick() {
-      window.location.href = marker.options.url;
-    }
+    
+    //Add Enter key support on marker icon
+    marker.on("keypress", function(e){
+      if(e.originalEvent.keyCode === 13){
+        window.location.href = marker.options.url
+      }
+    });
+
+    marker.on("click", function(e){
+      window.location.href = marker.options.url
+    });
+    
+    
     self.markers.push(marker);
+
   });
 
 } 
+
+
 /* addMarkersToMap = (restaurants = self.restaurants) => {
   restaurants.forEach(restaurant => {
     // Add marker to the map
@@ -210,4 +263,16 @@ addMarkersToMap = (restaurants = self.restaurants) => {
     self.markers.push(marker);
   });
 } */
+// function updateIndicator() {
+// 	if(navigator.onLine) { // true|false
+//     alert('online')
+//   }else{alert('offline')}
+// }
+
+// // Update the online status icon based on connectivity
+// window.addEventListener('online',  updateIndicator());
+// window.addEventListener('offline', updateIndicator());
+
+
+
 

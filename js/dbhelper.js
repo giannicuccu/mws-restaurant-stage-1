@@ -153,6 +153,15 @@ class DBHelper {
     return (`/img/${restaurant.photograph}`);
   }
 
+   /**
+   * Restaurant image name.
+   */
+  static imageNameForRestaurant(restaurant) {
+    let filename = restaurant.photograph
+    let cleanname = filename.substr(0, filename.lastIndexOf('.'));
+    return (`${cleanname}`);
+  }
+
   /**
    * Map marker for a restaurant.
    */

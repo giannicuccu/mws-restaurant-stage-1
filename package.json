@@ -1,0 +1,35 @@
+{
+  "name": "mws-restaurant-stage-1",
+  "version": "1.0.0",
+  "description": "Restaurant Review App from Udacity Nanodegree program",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/giannicuccu/mws-restaurant-stage-1.git"
+  },
+  "keywords": [
+    "Mobile",
+    "offline",
+    "first",
+    "accessible",
+    "app"
+  ],
+  "author": "Gianni",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/giannicuccu/mws-restaurant-stage-1/issues"
+  },
+  "homepage": "https://github.com/giannicuccu/mws-restaurant-stage-1#readme",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-image-resize": "^0.13.0",
+    "gulp-pipes": "^0.1.7",
+    "gulp-rename": "^1.3.0",
+    "gulp-webp": "^3.0.0",
+    "imagemin": "^5.3.1",
+    "imagemin-webp": "^4.1.0"
+  }
+}

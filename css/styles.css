@@ -71,6 +71,12 @@ section {
   display: block;
 }
 
+figure {
+
+  padding: 0;
+  margin: 0;
+}
+
 .home header {
   position: fixed;
   top: 0;
@@ -164,6 +170,13 @@ nav h1 a {
   text-decoration: underline;
 }
 
+#footer a {
+
+  color: #ffffff;
+  text-decoration: underline
+  
+}
+
 /* ====================== Map ====================== */
 
 #map {
@@ -177,7 +190,7 @@ nav h1 a {
 .filter-options {
   width: 100%;
   min-height: 50px;
-  background-color: #3397DB;
+  background-color: #4670AE;
   align-items: center;
 }
 
@@ -236,7 +249,7 @@ nav h1 a {
 }
 
 #restaurants-list li h1 {
-  color: #f18200;
+  color: #A35200;
   font-family: Arial, sans-serif;
   font-size: 14pt;
   font-weight: 200;
@@ -252,7 +265,7 @@ nav h1 a {
 }
 
 #restaurants-list li a {
-  background-color: orange;
+  background-color: #A35200;
   border-bottom: 3px solid #eee;
   color: #fff;
   display: inline-block;
@@ -298,7 +311,7 @@ nav h1 a {
 }
 
 #restaurant-name {
-  color: #f18200;
+  color: #A35200;
   font-family: Arial, sans-serif;
   font-size: 24pt;
   font-weight: 400;
@@ -342,7 +355,7 @@ nav h1 a {
 }
 
 #reviews-container h2 {
-  color: #f58500;
+  color: #A35200;
   font-size: 24pt;
   font-weight: 300;
   letter-spacing: -1px;
@@ -386,7 +399,35 @@ nav h1 a {
   font-weight: bold;
 }
 
-.revcomment {}
+
+caption,th{text-align: left;}
+
+
+/*TODO: add skip links*/
+
+/* #skiptocontent a:focus {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  outline: 0;
+  -webkit-transition: top .1s ease-in;
+  transition: top .1s ease-in;
+}
+#skiptocontent a {
+  padding: 6px;
+  position: absolute;
+  top: -40px;
+  left: 0px;
+  color: white;
+  border-right: 1px solid white;
+  border-bottom: 1px solid white;
+  border-bottom-right-radius: 8px;
+  background: #BF1722;
+  -webkit-transition: top 1s ease-out;
+  transition: top 1s ease-out;
+  z-index: 9999;
+} */
+
 
 @media all and (min-width: 1440px) {
   #restaurants-list li {
@@ -443,6 +484,7 @@ nav h1 a {
   #footer a {
     display: block;
     padding: 10px 0;
+    
   }
   .inside #breadcrumb {
     width: 100vw;
