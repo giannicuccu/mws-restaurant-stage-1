@@ -4,13 +4,31 @@
 
 ## Project Overview: Stage 1
 
-For the **Restaurant Reviews** projects, you will incrementally convert a static webpage to a mobile-ready web application. In **Stage One**, you will take a static design that lacks accessibility and convert the design to be responsive on different sized displays and accessible for screen reader use. You will also add a service worker to begin the process of creating a seamless offline experience for your users.
 
-### Specification
+This is the Restaurant Reviews App project,
+The starting app has been improved in order to be:
 
-You have been provided the code for a restaurant reviews website. The code has a lot of issues. It’s barely usable on a desktop browser, much less a mobile device. It also doesn’t include any standard accessibility features, and it doesn’t work offline at all. Your job is to update the code to resolve these issues while still maintaining the included functionality. 
+- Responsive to different sizes display
+- More Accessible
+- Offline working
 
-### What do I do from here?
+
+### Main features
+
+- Media queries
+- Removed not working css reset file
+- Add Figure elements for images with multiple srcset sources 
+- Add Aria labels and roles 
+- Fix foreground/background text color
+- Improved table accessibility using <caption> and <th> elements
+- Add alt attribute to images
+- Fix page title on restaurant detail page
+- Keyboard support to access restaurant detail page from map marker (with enter key)
+- Add service worker and  static resources caching for offline use
+
+
+
+### How to run?
 
 1. In this folder, start up a simple HTTP server to serve up the site files on your local computer. Python has some simple tools to do this, and you don't even need to know Python. For most people, it's already installed on your computer. 
 
@@ -20,13 +38,8 @@ In a terminal, check the version of Python you have: `python -V`. If you have Py
 3. Explore the provided code, and start making a plan to implement the required features in three areas: responsive design, accessibility and offline use.
 4. Write code to implement the updates to get this site on its way to being a mobile-ready website.
 
-## Leaflet.js and Mapbox:
-
-This repository uses [leafletjs](https://leafletjs.com/) with [Mapbox](https://www.mapbox.com/). You need to replace `<your MAPBOX API KEY HERE>` with a token from [Mapbox](https://www.mapbox.com/). Mapbox is free to use, and does not require any payment information. 
-
-### Note about ES6
-
-Most of the code in this project has been written to the ES6 JavaScript specification for compatibility with modern web browsers and future proofing JavaScript code. As much as possible, try to maintain use of ES6 in any additional JavaScript you write. 
+Webp and small size images are created using gulp and saved on /dist/img/ , 
+you do not need to install gulp to run the app.
 
 
 
