@@ -119,7 +119,7 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
 fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => {
   const hours = document.getElementById('restaurant-hours');
   
-  // add caption and headings
+  // Add table caption and headings
   const caption =  document.createElement("CAPTION");
   caption.innerText = 'Restaurant Openings';
   hours.appendChild(caption);

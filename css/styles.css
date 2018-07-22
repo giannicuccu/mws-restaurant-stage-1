@@ -399,11 +399,13 @@ nav h1 a {
   font-weight: bold;
 }
 
-.revcomment {}
 
 caption,th{text-align: left;}
 
-#skiptocontent a:focus {
+
+/*TODO: add skip links*/
+
+/* #skiptocontent a:focus {
   position: absolute;
   left: 0px;
   top: 0px;
@@ -424,7 +426,7 @@ caption,th{text-align: left;}
   -webkit-transition: top 1s ease-out;
   transition: top 1s ease-out;
   z-index: 9999;
-}
+} */
 
 
 @media all and (min-width: 1440px) {

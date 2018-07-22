@@ -53,6 +53,7 @@ self.addEventListener('install', function(event) {
   function fetchAndCache(url) {
     return fetch(url)
     .then(function(response) {
+
       //Check if we received a valid response
       // if ( !response.ok && response.type !== 'opaque') {
       //   console.log(response)
@@ -71,15 +72,19 @@ self.addEventListener('install', function(event) {
     })
     .catch(function(error) {
       console.log('Request failed:', url);
-      // offlineSwitch();
-      // navigator.serviceWorker.controller.postMessage("OFFLINE OFFLINE");
+      
      /* TODO: check if is a request for map images url.url.contains('MAP URL STRING PATTERN') */
       return caches.match('/img/offlinemap.png');
-      // return fetch('/img/offlinemap.png')
+      
     });
   }
 
 
+
+
+
+
+  
 
   // self.addEventListener('fetch', function(event) {
   //   console.log('FETCHING '+ event.request.url)

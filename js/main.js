@@ -1,8 +1,6 @@
 
 /*REGISTER SERVICE WORKER*/
-/*
-
-*/
+/**/
 
 if (!navigator.serviceWorker) {
   console.log('NO SERVICE WORKER')
@@ -13,12 +11,6 @@ if (!navigator.serviceWorker) {
   }).catch(function() {
     console.log('Registration failed!');
   });
-
-
-//   // Listen to messages from service workers.
-//   navigator.serviceWorker.addEventListener('message', function(event) {
-//   console.log("Got reply from service worker: " + event.data);
-// });
 
 };
 
@@ -186,6 +178,8 @@ createRestaurantHTML = (restaurant) => {
   const li = document.createElement('li');
   li.tabIndex = '0';
 
+  // Add picture element and some  sources (webp and small images)
+
   const picture = document.createElement('picture');
   const sourceWebP = document.createElement('source');
   sourceWebP.type = 'image/webp';
@@ -199,7 +193,9 @@ createRestaurantHTML = (restaurant) => {
 
   const image = document.createElement('img');
   image.className = 'restaurant-img';
-  image.setAttribute('alt', 'Picture of ' + restaurant.name + ' restaurant'); // add alt attr to image
+
+  // Add ALT attribute
+  image.setAttribute('alt', 'Picture of ' + restaurant.name + ''); // add alt attr to image
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
 
  
@@ -223,7 +219,7 @@ createRestaurantHTML = (restaurant) => {
 
   const more = document.createElement('a');
   more.innerHTML = 'View Details';
-  more.setAttribute('title', restaurant.name+' details'); // add title attribute to details btn
+  more.setAttribute('aria-label', restaurant.name+' details'); // add aria label attribute to details btn
   more.href = DBHelper.urlForRestaurant(restaurant);
   li.append(more)
 
@@ -237,14 +233,26 @@ addMarkersToMap = (restaurants = self.restaurants) => {
   restaurants.forEach(restaurant => {
     // Add marker to the map
     const marker = DBHelper.mapMarkerForRestaurant(restaurant, self.newMap);
-    marker.on("click", onClick);
-    function onClick() {
-      window.location.href = marker.options.url;
-    }
+    
+    //Add Enter key support on marker icon
+    marker.on("keypress", function(e){
+      if(e.originalEvent.keyCode === 13){
+        window.location.href = marker.options.url
+      }
+    });
+
+    marker.on("click", function(e){
+      window.location.href = marker.options.url
+    });
+    
+    
     self.markers.push(marker);
+
   });
 
 } 
+
+
 /* addMarkersToMap = (restaurants = self.restaurants) => {
   restaurants.forEach(restaurant => {
     // Add marker to the map
