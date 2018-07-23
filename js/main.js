@@ -2,17 +2,17 @@
 /*REGISTER SERVICE WORKER*/
 /**/
 
-if (!navigator.serviceWorker) {
-  console.log('NO SERVICE WORKER')
-}else{
-  //navigator.serviceWorker.register('/worker.js').then(function() {
-    navigator.serviceWorker.register('/worker.js').then(function() {
-    console.log('Registration worked!');
-  }).catch(function() {
-    console.log('Registration failed!');
-  });
+// if (!navigator.serviceWorker) {
+//   console.log('NO SERVICE WORKER')
+// }else{
+//   //navigator.serviceWorker.register('/worker.js').then(function() {
+//     navigator.serviceWorker.register('/worker.js').then(function() {
+//     console.log('Registration worked!');
+//   }).catch(function() {
+//     console.log('Registration failed!');
+//   });
 
-};
+// };
 
 
 
@@ -165,6 +165,17 @@ resetRestaurants = (restaurants) => {
  */
 fillRestaurantsHTML = (restaurants = self.restaurants) => {
   const ul = document.getElementById('restaurants-list');
+
+  // Add a text with results number 
+  const resultsLabel = document.getElementById('resultsLabel');
+  if(restaurants.length > 1){
+    resultsLabel.innerText = restaurants.length + ' Restaurants found' ;
+  } else if(restaurants.length === 1){
+    resultsLabel.innerText = '1 Restaurant found' ;
+  }else{
+    resultsLabel.innerText = 'No Restaurants found';
+  }
+
   restaurants.forEach(restaurant => {
     ul.append(createRestaurantHTML(restaurant));
   });

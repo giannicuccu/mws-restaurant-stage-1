@@ -400,7 +400,13 @@ nav h1 a {
 }
 
 
-caption,th{text-align: left;}
+caption, th {
+  text-align: left;
+}
+
+#resultsLabel {
+  margin: 10px 20px 0 20px;
+}
 
 
 /*TODO: add skip links*/
