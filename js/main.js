@@ -2,17 +2,17 @@
 /*REGISTER SERVICE WORKER*/
 /**/
 
-// if (!navigator.serviceWorker) {
-//   console.log('NO SERVICE WORKER')
-// }else{
-//   //navigator.serviceWorker.register('/worker.js').then(function() {
-//     navigator.serviceWorker.register('/worker.js').then(function() {
-//     console.log('Registration worked!');
-//   }).catch(function() {
-//     console.log('Registration failed!');
-//   });
+if (!navigator.serviceWorker) {
+  console.log('NO SERVICE WORKER')
+}else{
+  //navigator.serviceWorker.register('/worker.js').then(function() {
+    navigator.serviceWorker.register('/worker.js').then(function() {
+    console.log('Registration worked!');
+  }).catch(function() {
+    console.log('Registration failed!');
+  });
 
-// };
+};
 
 
 
